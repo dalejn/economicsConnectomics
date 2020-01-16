@@ -54,17 +54,17 @@ Dale Zhou (dalezhou [at] pennmedicine.upenn.edu)
     ├── fig3.R   		     		<- CBF/network structure trade-offs.
     ├── fig4_randomVsBrainRD.m			<- Rate-distortion function.
     ├── fig4.R   		     		<- Compression eff vs age*sex.
-    ├── fig5_resourceEfficiencyConcatenate.R    <- send/rcv compression eff
-    ├── fig5_fitRD.m    			<- individual compression eff
-    ├── fig5.R					<- random walk vs chemotaxis
-    ├── fig6.R					<- high & low fidelity regimes
-    ├── fig7.R					<- send/rcv vs scaling, myelin
-    ├── fig7_atlasCorrelations.m		<- spin test for spatial corr
-    ├── fig8_preprocessRegional.m		<- regional send/recv compression eff
-    ├── fig8.R					<- rich-club hubs & speed-accuracy
-    ├── resource_efficiency_wei.m		<- resource efficiency for WU networks
-    ├── supplement_richClubCBF.R		<- CBF of rich-club vs non-rich-club
-    ├── supplement_subnetworks.R		<- Yeo 7 subnetwork levels
+    ├── fig5_resourceEfficiencyConcatenate.R    <- Send/rcv compression eff.
+    ├── fig5_fitRD.m    			<- Individual compression eff.
+    ├── fig5.R					<- Random walk vs chemotaxis.
+    ├── fig6.R					<- High & low fidelity regimes.
+    ├── fig7.R					<- Send/rcv vs scaling, myelin.
+    ├── fig7_atlasCorrelations.m		<- Spin test for spatial corr.
+    ├── fig8_preprocessRegional.m		<- Regional send/recv compression eff.
+    ├── fig8.R					<- Rich-club hubs & speed-accuracy.
+    ├── resource_efficiency_wei.m		<- Resource efficiency for WU networks.
+    ├── supplement_richClubCBF.R		<- CBF of rich-club vs non-rich-club.
+    ├── supplement_subnetworks.R		<- Yeo 7 subnetwork levels.
     │
     ├── README.md
 
