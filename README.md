@@ -1,4 +1,4 @@
-# economics-of-connectomics
+# Economics of Connectomics
 
 Code for the paper, [*Efficient Coding in the Economics of Human Brain Connectomics*](https://www.biorxiv.org/content/10.1101/2020.01.14.906842v2).
 
@@ -48,7 +48,16 @@ Dale Zhou (dalezhou [at] pennmedicine.upenn.edu)
 
     ├── data	                                <- Data goes here.
     ├── figures					<- Figures for manuscript.
-    │   
+    │   ├── fig1                   
+    │   ├── fig2
+    │   ├── fig3
+    │   ├── fig4
+    │   ├── fig5
+    │   ├── fig6
+    │   ├── fig7
+    │   ├── fig8
+    │   ├── supplement
+    │ 
     ├── fig1.R 					<- CBF vs CMRGlu.
     ├── fig2.R		     			<- CBF of paths.
     ├── fig3.R   		     		<- CBF/network structure trade-offs.
