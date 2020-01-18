@@ -19,7 +19,9 @@ MATLAB:        8.4.0.150421 (R2014b)
 ### Functions
 
 Download the [Brain Connectivity Toolbox](https://sites.google.com/site/bctnet/)
+
 Download [polyfix](https://www.mathworks.com/matlabcentral/fileexchange/54207-polyfix-x-y-n-xfix-yfix-xder-dydx)
+
 Download [spin test](https://github.com/frantisekvasa/rotate_parcellation)
 
 Move to /scripts/
