@@ -4,7 +4,7 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 library(ggplot2)
 library(ppcor)
@@ -48,7 +48,7 @@ dev.off()
 ################################################
 
 
-unbiasedSlopes <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/results/unbiasedSlopes.txt', sep=' ',header=F))
+unbiasedSlopes <- as.data.frame(read.csv('/data/unbiasedSlopes.txt', sep=' ',header=F))
 colnames(unbiasedSlopes) <- c('scanid','unbiasedSlopes')
 QA_df <- merge(QA_df, unbiasedSlopes, by=c('scanid'))
 

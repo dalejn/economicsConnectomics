@@ -2,19 +2,19 @@ clc
 clear
 
 % Unbiased
-resArray = dlmread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/resourceEfficiencyConcatenated.csv',',',2,0);
+resArray = dlmread('/data/resourceEfficiencyConcatenated.csv',',',2,0);
 resArray = resArray(all(resArray,2),:);
 
 % Repulse
-resArray2 = dlmread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/repulseConcat.csv',',',2,0);
+resArray2 = dlmread('/data/repulseConcat.csv',',',2,0);
 resArray2 = resArray2(all(resArray2,2),:);
 
 % Attract
-resArray3 = dlmread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/attractConcat.csv',',',2,0);
+resArray3 = dlmread('/data/attractConcat.csv',',',2,0);
 resArray3(all(resArray3,2),:);
 
 %% Individual
-addpath('/data/jux/BBL/projects/ASLnetwork/scripts/polyfix/')
+addpath('/scripts/polyfix/')
 
 % Only plot repulse for figure
 for j=2

@@ -4,7 +4,7 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 library(ggplot2)
 library(ppcor)
@@ -13,7 +13,7 @@ library(visreg)
 library(scatterplot3d)
 
 # load rich club assignments
-richclub <- read.csv('/data/jux/BBL/projects/ASLnetwork/results/richclub.txt')
+richclub <- read.csv('/data/richclub.txt')
 df1<- cbind(richclub)
 
 ############################

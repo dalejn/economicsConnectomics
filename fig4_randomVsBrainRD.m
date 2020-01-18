@@ -2,11 +2,11 @@ clc
 clear
 
 % Unbiased
-resArray = dlmread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/resourceEfficiencyConcatenated.csv',',',2,0);
+resArray = dlmread('/data/resourceEfficiencyConcatenated.csv',',',2,0);
 resArray = resArray(all(resArray,2),:);
 
 %ER Null
-resArray2 = dlmread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyNulls/largestComponent/erNullConcat.csv',',',2,0);
+resArray2 = dlmread('/data/erNullConcat.csv',',',2,0);
 resArray2 = resArray2(all(resArray2,2),:);
 
 %%

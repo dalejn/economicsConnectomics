@@ -1,6 +1,6 @@
 clc
 clear
-cd '/data/jux/BBL/projects/ASLnetwork/scripts/spinTest'
+cd '/data/scripts/spinTest'
 
 %%
 coords = dlmread('sphere_HCP.txt');
@@ -17,23 +17,20 @@ load 'null_distr.mat'
 
 evo_sq = zeros(4,1);
 %%%%%%%%%%%%%%%%%%%%%
-x = csvread('/data/jux/BBL/projects/ASLnetwork/results/regionalData/allometricScaling_regional.txt',0);
-%y = csvread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/tSpectrum/distortion_regional.txt',0);
-y = csvread('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_send.txt');
+x = csvread('/data/allometricScaling_regional.txt',0);
+%y = csvread('/data/distortion_regional.txt',0);
+y = csvread('/data/compressionEfficiency_send.txt');
 evo_sq(1,:) = perm_sphere_p(x,y(:,2),null_distr,'spearman')
 
-x = csvread('/data/jux/BBL/projects/ASLnetwork/results/regionalData/myelin_regional.txt',0);
-%y = csvread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/tSpectrum/distortion_regional.txt',0);
-y = csvread('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_send.txt');
+x = csvread('/data/myelin_regional.txt',0);
+y = csvread('/data/compressionEfficiency_send.txt');
 evo_sq(2,:) = perm_sphere_p(x,y(:,2),null_distr,'spearman')
 
-x = csvread('/data/jux/BBL/projects/ASLnetwork/results/regionalData/allometricScaling_regional.txt',0);
-%y = csvread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/minus3distortion_regional.txt',0);
-y = csvread('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_receive.txt');
+x = csvread('/data/allometricScaling_regional.txt',0);
+y = csvread('/data/compressionEfficiency_receive.txt');
 evo_sq(3,:)= perm_sphere_p(x,y(:,2),null_distr,'spearman')
 
-x = csvread('/data/jux/BBL/projects/ASLnetwork/results/regionalData/myelin_regional.txt',0);
-%y = csvread('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/minus3distortion_regional.txt',0);
-y = csvread('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_receive.txt');
+x = csvread('/data/myelin_regional.txt',0);
+y = csvread('/data/compressionEfficiency_receive.txt');
 evo_sq(4,:)= perm_sphere_p(x,y(:,2),null_distr,'spearman')
 

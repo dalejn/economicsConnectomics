@@ -4,7 +4,7 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 library(ggplot2)
 library(ppcor)
@@ -13,15 +13,15 @@ library(visreg)
 library(scatterplot3d)
 
 # load rich club assignments
-richclub <- read.csv('/data/jux/BBL/projects/ASLnetwork/results/richclub.txt')
+richclub <- read.csv('/data/richclub.txt')
 df1<- cbind(richclub)
 
 # For right stochastic matrices:
 # load compression efficiency send as row mean of resource efficiency over i
 # load compression efficiency receive as column mean of resource efficiency over j
 
-unbiasedSlopes_send <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_send.txt', sep=' ',header=F))
-unbiasedSlopes_receive <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_receive.txt', sep=' ',header=F))
+unbiasedSlopes_send <- as.data.frame(read.csv('/data/compressionEfficiency_send.txt', sep=' ',header=F))
+unbiasedSlopes_receive <- as.data.frame(read.csv('/data/compressionEfficiency_receive.txt', sep=' ',header=F))
 
 unbiasedSlopes_send <- as.data.frame(unbiasedSlopes_send[,2])
 unbiasedSlopes_receive <- as.data.frame(unbiasedSlopes_receive[,2])
@@ -56,11 +56,11 @@ wilcox.test(df1$slope[df1$direction=="receive" & df1$richclub==0], df1$slope[df1
 
 # load individual compression efficiency measures (averaged across rich-club or non-richclub)
 
-unbiasedSlopes <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/slope_unbiased_richclub0.txt', sep=' ',header=F))
+unbiasedSlopes <- as.data.frame(read.csv('/data/slope_unbiased_richclub0.txt', sep=' ',header=F))
 colnames(unbiasedSlopes) <- c('scanid','unbiasedSlopes_richclub0')
 QA_df <- merge(QA_df, unbiasedSlopes, by=c('scanid'))
 
-unbiasedSlopes <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/slope_unbiased_richclub1.txt', sep=' ',header=F))
+unbiasedSlopes <- as.data.frame(read.csv('/data/slope_unbiased_richclub1.txt', sep=' ',header=F))
 colnames(unbiasedSlopes) <- c('scanid','unbiasedSlopes_richclub1')
 QA_df <- merge(QA_df, unbiasedSlopes, by=c('scanid'))
 
@@ -81,7 +81,7 @@ QA_minusOutliers <- QA_minusOutliers[which(QA_minusOutliers$unbiasedSlopes_richc
 
 # load individual global efficiency measures
 
-globEff<- read.csv("/data/jux/BBL/projects/ASLnetwork/results/global_efficiency.mat",sep=" ",header=F)
+globEff<- read.csv("/data/global_efficiency.mat",sep=" ",header=F)
 colnames(globEff)<- c('scanid','globEff')
 QA_df <- merge(QA_df,globEff,by=c("scanid"))
 
@@ -165,7 +165,7 @@ ggsave('figures/fig8/NCB_zscore_byChannelCapacity.eps',device='eps',width=7.18,h
 QA_df$unbiasedSlopes <- NULL
 # Load individual measure of compression efficiency
 
-unbiasedSlopes <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/results/unbiasedSlopes.txt', sep=' ',header=F))
+unbiasedSlopes <- as.data.frame(read.csv('/data/unbiasedSlopes.txt', sep=' ',header=F))
 unbiasedSlopes[,2] <- scale(unbiasedSlopes[,2])
 colnames(unbiasedSlopes) <- c('scanid','unbiasedSlopes')
 QA_df <- merge(QA_df, unbiasedSlopes, by=c('scanid'))

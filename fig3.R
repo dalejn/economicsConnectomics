@@ -4,14 +4,14 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 library(ggplot2)
 library(ppcor)
 library(mgcv)
 library(visreg)
 library(scatterplot3d)
 
-pathtrans<- read.csv("/data/jux/BBL/projects/ASLnetwork/results/pathTransArray.txt",sep=" ",header=F)
+pathtrans<- read.csv("/data/pathTransArray.txt",sep=" ",header=F)
 pathtrans <- cbind(pathtrans[1], rowMeans(pathtrans[2:361], na.rm=T))
 colnames(pathtrans)<- c('scanid','pathtrans')
 
