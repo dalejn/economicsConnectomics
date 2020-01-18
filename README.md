@@ -19,6 +19,53 @@ MATLAB:        8.4.0.150421 (R2014b)
 ### Functions
 
 Download the [Brain Connectivity Toolbox](https://sites.google.com/site/bctnet/)
+Download [polyfix](https://www.mathworks.com/matlabcentral/fileexchange/54207-polyfix-x-y-n-xfix-yfix-xder-dydx)
+Download [spin test](https://github.com/frantisekvasa/rotate_parcellation)
+
+Move to /scripts/
+
+## Author
+
+Dale Zhou (dalezhou [at] pennmedicine.upenn.edu)
+
+## Project Organization
+
+```
+
+    ├── data                                    <- Data goes here.
+    ├── figures                 <- Figures for manuscript.
+    │   ├── fig1                   
+    │   ├── fig2
+    │   ├── fig3
+    │   ├── fig4
+    │   ├── fig5
+    │   ├── fig6
+    │   ├── fig7
+    │   ├── fig8
+    │   ├── supplement
+    │ 
+    ├── scripts                 <- Downloaded functions go here
+    │
+    ├── fig1.R                  <- CBF vs CMRGlu.
+    ├── fig2.R                      <- CBF of paths.
+    ├── fig3.R                      <- CBF/network structure trade-offs.
+    ├── fig4_randomVsBrainRD.m          <- Rate-distortion function.
+    ├── fig4.R                      <- Compression eff vs age*sex.
+    ├── fig5_resourceEfficiencyConcatenate.R    <- Send/rcv compression eff.
+    ├── fig5_fitRD.m                <- Individual compression eff.
+    ├── fig5.R                  <- Random walk vs chemotaxis.
+    ├── fig6.R                  <- High & low fidelity regimes.
+    ├── fig7.R                  <- Send/rcv vs scaling, myelin.
+    ├── fig7_atlasCorrelations.m        <- Spin test for spatial corr.
+    ├── fig8_preprocessRegional.m       <- Regional send/recv compression eff.
+    ├── fig8.R                  <- Rich-club hubs & speed-accuracy.
+    ├── resource_efficiency_wei.m       <- Resource efficiency for WU networks.
+    ├── supplement_richClubCBF.R        <- CBF of rich-club vs non-rich-club.
+    ├── supplement_subnetworks.R        <- Yeo 7 subnetwork levels.
+    │
+    ├── README.md
+
+```
 
 ## Order of scripts
 
@@ -37,47 +84,6 @@ Download the [Brain Connectivity Toolbox](https://sites.google.com/site/bctnet/)
 13. fig8.R
 14. supplement_richClubCBF.R 
 15. supplement_subnetworks.R
-
-## Author
-
-Dale Zhou (dalezhou [at] pennmedicine.upenn.edu)
-
-## Project Organization
-
-```
-
-    ├── data	                                <- Data goes here.
-    ├── figures					<- Figures for manuscript.
-    │   ├── fig1                   
-    │   ├── fig2
-    │   ├── fig3
-    │   ├── fig4
-    │   ├── fig5
-    │   ├── fig6
-    │   ├── fig7
-    │   ├── fig8
-    │   ├── supplement
-    │ 
-    ├── fig1.R 					<- CBF vs CMRGlu.
-    ├── fig2.R		     			<- CBF of paths.
-    ├── fig3.R   		     		<- CBF/network structure trade-offs.
-    ├── fig4_randomVsBrainRD.m			<- Rate-distortion function.
-    ├── fig4.R   		     		<- Compression eff vs age*sex.
-    ├── fig5_resourceEfficiencyConcatenate.R    <- Send/rcv compression eff.
-    ├── fig5_fitRD.m    			<- Individual compression eff.
-    ├── fig5.R					<- Random walk vs chemotaxis.
-    ├── fig6.R					<- High & low fidelity regimes.
-    ├── fig7.R					<- Send/rcv vs scaling, myelin.
-    ├── fig7_atlasCorrelations.m		<- Spin test for spatial corr.
-    ├── fig8_preprocessRegional.m		<- Regional send/recv compression eff.
-    ├── fig8.R					<- Rich-club hubs & speed-accuracy.
-    ├── resource_efficiency_wei.m		<- Resource efficiency for WU networks.
-    ├── supplement_richClubCBF.R		<- CBF of rich-club vs non-rich-club.
-    ├── supplement_subnetworks.R		<- Yeo 7 subnetwork levels.
-    │
-    ├── README.md
-
-```
 
 ### Notes
 

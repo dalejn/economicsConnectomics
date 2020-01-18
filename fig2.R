@@ -4,7 +4,7 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('/data/0_finalData.RData')
 
 library(ggplot2)
 library(ppcor)
@@ -14,7 +14,7 @@ library(scatterplot3d)
 
 # load global efficiency per individual data
 
-globEff<- read.csv("/data/jux/BBL/projects/ASLnetwork/results/global_efficiency.mat",sep=" ",header=F)
+globEff<- read.csv("data/global_efficiency.mat",sep=" ",header=F)
 colnames(globEff)<- c('scanid','globEff')
 
 QA_df <- merge(QA_df,globEff,by=c("scanid"))
@@ -59,7 +59,7 @@ cor.test(residGlobEff,residGlobCbf)
 
 # reload data
 rm(list=ls())
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 l <- vector("list",15)
 t <- vector("list",15)
@@ -67,7 +67,7 @@ degreesFreedom <- vector("list",15)
 
 for (i in c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15))
 {
-  filepath <- paste0('/data/jux/BBL/projects/ASLnetwork/results/faExp/fa_exp',i,'_individual.txt')
+  filepath <- paste0('/data/fa_exp',i,'_individual.txt')
   fa <- as.data.frame(read.table(filepath,header=F,sep=' '))
   column_new <- paste0('fa',i)
   colnames(fa) <- c('scanid',column_new)
@@ -129,7 +129,7 @@ ggsave('figures/fig2/interIndividualWalkLengthCbf.eps',device='eps',width=7.18,h
 ########################################
 
 # reload data
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 # load regional CBF
 # verify regional CBF of Glasser parcels
@@ -141,14 +141,14 @@ df1 <- as.data.frame(cbind(QA_df[1],df1))
 
 roiCbf <- cbind(colMeans(df1[2:361],na.rm=T))
 
-degreeRoi <- unlist(read.csv('/data/jux/BBL/projects/ASLnetwork/results/degreeRoi.txt',header=F,sep=' '))
+degreeRoi <- unlist(read.csv('/data/degreeRoi.txt',header=F,sep=' '))
 
 r <- vector("list",15)
 p <- vector("list",15)
 
 for (i in c(seq(1,15,1)))
 {
-  filepath <- paste0('/data/jux/BBL/projects/ASLnetwork/results/faExp/fa_exp',i,'_regional.txt')
+  filepath <- paste0('/data/fa_exp',i,'_regional.txt')
   fa <- read.table(filepath,header=F,sep=' ')
   column_new <- paste0('fa',seq(1:360))
   colnames(fa) <- c('scanid',column_new)

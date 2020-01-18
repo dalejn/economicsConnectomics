@@ -4,7 +4,7 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 library(ggplot2)
 library(ppcor)
@@ -24,7 +24,7 @@ library(scatterplot3d)
 
 for (i in c(1,2,3,4,5,6,7,8,9,92,94,96,98,999))
 {
-  filepath <- paste0('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/largestComponent/glasser__resource_efficiency0',i,'.txt')
+  filepath <- paste0('data/glasser__resource_efficiency0',i,'.txt')
   resEff <- read.csv(filepath,header=F,sep=' ')
   resEff[2:ncol(resEff)] <- 1/resEff[2:ncol(resEff)]
   is.na(resEff) <- do.call(cbind,lapply(resEff, is.infinite))
@@ -42,7 +42,7 @@ for (i in c(1,2,3,4,5,6,7,8,9,92,94,96,98,999))
   colnames(resEff) <- c('scanid',"resources","probability","cbfBiased")
   assign(paste0("df",i),as.data.frame(resEff))
   
-  filepath2 <- paste0('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/largestComponent/glasser_cbfBiasedAttractive_resource_efficiency0',i,'.txt')
+  filepath2 <- paste0('/data/glasser_cbfBiasedAttractive_resource_efficiency0',i,'.txt')
   resEff <- read.csv(filepath2,header=F,sep=' ')
   resEff[2:ncol(resEff)] <- 1/resEff[2:ncol(resEff)]
   is.na(resEff) <- do.call(cbind,lapply(resEff, is.infinite))
@@ -60,7 +60,7 @@ for (i in c(1,2,3,4,5,6,7,8,9,92,94,96,98,999))
   colnames(resEff) <- c('scanid',"resources","probability","cbfBiased")
   assign(paste0("df",i,"biased"),as.data.frame(resEff))
   
-  filepath3 <- paste0('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/largestComponent/glasser_cbfBiasedRepulsive_resource_efficiency0',i,'.txt')
+  filepath3 <- paste0('/data/glasser_cbfBiasedRepulsive_resource_efficiency0',i,'.txt')
   resEff <- read.csv(filepath3,header=F,sep=' ')
   resEff[2:ncol(resEff)] <- 1/resEff[2:ncol(resEff)]
   is.na(resEff) <- do.call(cbind,lapply(resEff, is.infinite))

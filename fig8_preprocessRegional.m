@@ -1,19 +1,19 @@
 clc
 clear
 
-addpath('/data/jux/BBL/projects/ASLnetwork/scripts/polyfix/')
+addpath('/scripts/polyfix/')
 
 for j = 0
     if j==0
         % send
-        resArray = dlmread('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/resourceEfficiency_regional_send.csv',',',1,0);
+        resArray = dlmread('/data/resourceEfficiency_regional_send.csv',',',1,0);
         resArray = resArray(all(resArray,2),:);
-        outpath = strcat('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_send.txt');
+        outpath = strcat('/data/compressionEfficiency_send.txt');
     else
         % receive
-        resArray = dlmread('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/resourceEfficiency_regional_receive.csv',',',1,0);
+        resArray = dlmread('/data/resourceEfficiency_regional_receive.csv',',',1,0);
         resArray = resArray(all(resArray,2),:);
-        outpath = strcat('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_receive.txt');
+        outpath = strcat('/data/compressionEfficiency_receive.txt');
     end
     
     % preallocate zeros

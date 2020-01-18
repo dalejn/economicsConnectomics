@@ -1,9 +1,9 @@
-load('0_finalData.RData')
+load('/data/0_finalData.RData')
 library(ggplot2)
 
 # load PET data
 
-pet <- as.vector(read.csv('/data/jux/BBL/projects/ASLnetwork/results/regionalData/pet_regional.txt', sep=' ',header=F))
+pet <- as.vector(read.csv('/data/pet_regional.txt', sep=' ',header=F))
 
 # load CBF data (order will need to be unscrambled from alphabetical sorting in data frame)
 
@@ -20,4 +20,4 @@ roiCbf <- cbind(colMeans(roiCbf[2:361],na.rm=T))
 df1 <- cbind(roiCbf, pet)
 colnames(df1) <- c('roiCbf','pet')
 ggplot(df1,aes(x=roiCbf,y=pet))+geom_point()+theme_classic(base_size=20)+geom_smooth(method='lm')
-ggsave("/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/figures/fig1/CBF_PETGlucose.eps",device='eps',width=7.18,height=6.31)
+ggsave("/figures/fig1/CBF_PETGlucose.eps",device='eps',width=7.18,height=6.31)

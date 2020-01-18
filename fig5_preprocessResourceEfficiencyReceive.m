@@ -1,7 +1,7 @@
 nreg=360;
 nedge=64620;
 
-cd('/data/jux/BBL/projects/ASLnetwork/data/faGlasser')
+cd('/data/faGlasser')
 fa_network_files = dir('*FA_GlasserPNC.mat');
 nfiles = length(fa_network_files);
 nsub=nfiles;
@@ -51,6 +51,6 @@ for probability=[0.999,0.98,0.96,0.94,0.92,0.9,0.8,0.7,0.6,0.5,0.4, 0.3, 0.2, 0.
     end
     currentProb = num2str(probability, 16);
     currentProb(currentProb=='.') = []
-    outName = strcat('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/resource_efficiency',currentProb,'_receive.txt')
+    outName = strcat('/data/resource_efficiency',currentProb,'_receive.txt')
     dlmwrite(outName,resEff_array,'delimiter',' ', 'precision', 10)
 end

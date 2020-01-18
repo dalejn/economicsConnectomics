@@ -4,7 +4,7 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 library(ggplot2)
 library(ppcor)
@@ -22,14 +22,14 @@ for (j in c(83,129,234,463,1015))
 {
   for (i in c(999,9,5))
   {
-    filepath <- paste0('/data/jux/BBL/projects/ASLnetwork/results/lausanneResourceEfficiency/largestComponent/Lausanne',j,'_resource_efficiency0',i,'.txt')
+    filepath <- paste0('/data/Lausanne',j,'_resource_efficiency0',i,'.txt')
     
-    degreePath <- paste0('/data/jux/BBL/projects/ASLnetwork/results/degreeLausanne',j,'.txt')
+    degreePath <- paste0('/data/degreeLausanne',j,'.txt')
     degree <- read.csv(degreePath,header=F,sep=' ')
     degree_name <- paste0('degree',i,'_',j,'nodes')
     colnames(degree) <- c("scanid",degree_name)
     
-    densityPath <- paste0('/data/jux/BBL/projects/ASLnetwork/results/densityLausanne',j,'.txt')
+    densityPath <- paste0('/data/densityLausanne',j,'.txt')
     density <- read.csv(degreePath,header=F,sep=' ')
     density_name <- paste0('density',i,'_',j,'nodes')
     colnames(density) <- c("scanid",density_name)
@@ -85,7 +85,7 @@ ggsave('figures/fig6/highFidelityRegime.eps',device='eps',width=7.18,height=6.31
 
 # load path complexity 
 
-df1 <- read.csv('/data/jux/BBL/projects/ASLnetwork/results/pathSize.txt',sep=' ',header=F)
+df1 <- read.csv('/data/pathSize.txt',sep=' ',header=F)
 colnames(df1)<- c('scanid','pathComplexity')
 QA_df <- merge(QA_df, df1,by='scanid')
 
@@ -93,7 +93,7 @@ QA_df <- merge(QA_df, df1,by='scanid')
 
 for (i in c(1,2,3,4,5,6,7,8,9,92,94,96,98,999))
 {
-  filepath <- paste0('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/glasser_resource_efficiency0',i,'.txt')
+  filepath <- paste0('/data/glasser_resource_efficiency0',i,'.txt')
   resEff <- read.csv(filepath,header=F,sep=' ')
   resEff[2:ncol(resEff)] <- 1/resEff[2:ncol(resEff)]
   is.na(resEff) <- do.call(cbind,lapply(resEff, is.infinite))

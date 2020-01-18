@@ -4,7 +4,7 @@ rm(list=ls())
 # Load workspace and libraries #
 ################################
 
-load('0_finalData.RData')
+load('data/0_finalData.RData')
 
 library(ggplot2)
 library(ppcor)
@@ -15,26 +15,23 @@ library(scatterplot3d)
 ####################################
 
 # load rich club assignments
-richclub <- read.csv('/data/jux/BBL/projects/ASLnetwork/results/richclub.txt')
+richclub <- read.csv('/data/richclub.txt')
 df1<- cbind(richclub)
 
 # For right stochastic matrices:
 # load compression efficiency send as row mean of resource efficiency over i
 # load compression efficiency receive as column mean of resource efficiency over j
 
-#unbiasedSlopes_send <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/tSpectrum/distortion_regional.txt', sep=' ',header=F))
-#unbiasedSlopes_receive <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/results/resourceEfficiencyWei/minus3distortion_regional.txt', sep=' ',header=F))
-
-unbiasedSlopes_send <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_send.txt', sep=' ',header=F))
-unbiasedSlopes_receive <- as.data.frame(read.csv('/data/jux/BBL/projects/ASLnetwork/scripts/zaixuRepro/data/compressionEfficiency_receive.txt', sep=' ',header=F))
+unbiasedSlopes_send <- as.data.frame(read.csv('/data/compressionEfficiency_send.txt', sep=' ',header=F))
+unbiasedSlopes_receive <- as.data.frame(read.csv('/data/compressionEfficiency_receive.txt', sep=' ',header=F))
 
 df1$slope_send <- unbiasedSlopes_send[,2]
 df1$slope_receive <- unbiasedSlopes_receive[,2]
 
-scaling <- as.vector(read.csv('/data/jux/BBL/projects/ASLnetwork/results/regionalData/allometricScaling_regional.txt', sep=' ',header=F))
+scaling <- as.vector(read.csv('/data/allometricScaling_regional.txt', sep=' ',header=F))
 df1$scaling <- scaling$V1
 
-myelin <- as.vector(read.csv('/data/jux/BBL/projects/ASLnetwork/results/regionalData/myelin_regional.txt', sep=' ',header=F))
+myelin <- as.vector(read.csv('/data/regionalData/myelin_regional.txt', sep=' ',header=F))
 df1$myelin <- myelin$V1
 
 colnames(df1) <- c('richclub','slope_send', 'slope_receive', 'scaling', 'myelin')
