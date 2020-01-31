@@ -24,6 +24,8 @@ Download [polyfix](https://www.mathworks.com/matlabcentral/fileexchange/54207-po
 
 Download [spin test](https://github.com/frantisekvasa/rotate_parcellation)
 
+Download [GenLouvain](http://netwiki.amath.unc.edu/GenLouvain)
+
 Move to /scripts/
 
 ## Author
